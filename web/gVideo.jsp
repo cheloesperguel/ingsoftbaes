@@ -3,15 +3,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-       
+        
          
     </head>
     <body style="width: 100%; position: relative">
-        <h1>Gestor de Videos</h1>
         
-        <div> 
-            
-            <input type="button" onclick="muestraGaleria()" value="Galeria" >
+        <div id="gestorDiv" style="  display: block; position: static;top:170px;left:240px;width:560px">
+        <h1>Gestor de Videos</h1>
+               
+            <input type="button" onclick="muestraGaleria();show();" value="Galeria" >
             <input type="button" onclick="muestraAdministrar()" value="Administrar">
             <input type="button" onclick="muestraSubir()" value="Subir">     
  
@@ -19,19 +19,13 @@
         
         
         <div id="galeriaDiv" style="  display: none ">
-            <h1>Galeria</h1>
             
-            <script>
-                
-            show();
-           
-            </script>
             
-            <div id="hola">
-                
+            <div id="hola" style="text-align: center">
+                <h1>Galeria</h1>
                 
             </div>
-            <video src="videoFolder/test.mp4" poster="videoFolder/default.jpg" width="400" controls></video> 
+           
             
         </div>  
         
@@ -107,21 +101,18 @@
             }
             
             function show(){
-                document.getElementById("subirDiv").style.display = "block";
-                document.write("asd");
-                for (i = 0; i < 10; i++) {
+                
+                 
+                for(var i=0; i<10;i++){
                     
-                    a=document.getElementById("hola");  
-                    a.innerHTML('<video src="videoFolder/test.mp4" poster="videoFolder/default.jpg" width="400" controls></video>');
-                    document.write('<video src="videoFolder/test.mp4" poster="videoFolder/default.jpg" width="400" controls></video>'); 
-
-                }
-
-               
+                    $(document).ready(function(){ 
+                        $("#hola").load('galleryLoad.jsp');
+                    });
+                } 
+        
+  
             }
-           
-            
-    
+
         </script>
         
         

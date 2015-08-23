@@ -23,6 +23,7 @@
             try {
               JufroCMSConnection c = new JufroCMSConnection();
               Statement s = c.createStatement();
+              
               String sentencia="INSERT INTO VIDEO VALUES ( '"+titulo+"', 'videoFolder/"+nombre+"', '"+rutaThumbnail+"')";
               s.execute(sentencia);
               //Ejemplo s.execute("INSERT INTO VIDEO VALUES ('Taiwan', 'TW', 'Asia')");
@@ -58,10 +59,12 @@
             
             if (! item.isFormField()){
                 /*cual sera la ruta al archivo en el servidor*/
-                File archivo_server = new File("C:/Users/Chelo/Documents/NetBeansProjects/JufroCMS/web/videoFolder/"+item.getName());
+                String nombre=item.getName().replace(" ", ""); //quito espacios del nombre
+                
+                File archivo_server = new File("C:/Users/Chelo/Documents/NetBeansProjects/JufroCMS/web/videoFolder/"+nombre);
                 /*y lo escribimos en el servido*/
                 item.write(archivo_server);
-                asd( item.getName(),item.getName(),"ruta thumbnail","descripcion");
+                asd( nombre,nombre,"ruta thumbnail","descripcion");
                  
                 MiConfiguracion miweb = new MiConfiguracion();
                 //JufroPage mipagina = new JufroPage(mic,request,session);

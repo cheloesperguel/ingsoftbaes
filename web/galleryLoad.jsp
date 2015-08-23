@@ -10,19 +10,33 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.Statement"%>
-<%@page import="miaplicacionweb.MiConfiguracion"%>
-<%@page import="jufroweb.Content"%>
-<%@page import="jufroweb.Layout"%>
-
-<%
 
 
-                MiConfiguracion miweb = new MiConfiguracion();
-                //JufroPage mipagina = new JufroPage(mic,request,session);
-                
-                Layout lay = new Layout("C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\gVideo.jsp");
-                miweb.setContent(lay.getWebPage(),request,session);
-               
-                out.print(miweb.getWebPage());
-                
-%>
+<% 
+    try {
+        JufroCMSConnection c = new JufroCMSConnection();
+            Statement s = c.createStatement();
+            ResultSet rs = s.executeQuery("select * from VIDEO" );
+
+        while (rs.next()){
+            String string="<video src=";
+            
+            String ruta=rs.getObject("RUTA").toString();
+            
+            string=string+ruta;
+            string=string+" poster=\"videoFolder/default.jpg\" width=\"400\" controls></video><br>";
+            
+            out.println(rs.getObject("NOMBRE").toString()+"<br>");
+            out.println(string);  
+        }
+        
+    }catch(Exception e){
+       out.println("Excepcion "+e);
+       e.printStackTrace();
+    }  
+    
+    
+    
+    %>
+    
+    
