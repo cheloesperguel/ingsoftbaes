@@ -16,7 +16,7 @@
 
 
         <%!
-        void asd(String titulo,String nombre, String rutaThumbnail, String Descripcion){
+        void send(String titulo,String nombre, String rutaThumbnail, String Descripcion){
             
             
             
@@ -42,32 +42,34 @@
 %>
 
 <%
-        /*FileItemFactory es una interfaz para crear FileItem*/
+        
         FileItemFactory file_factory = new DiskFileItemFactory();
  
-        /*ServletFileUpload esta clase convierte los input file a FileItem*/
+       
         ServletFileUpload servlet_up = new ServletFileUpload(file_factory);
-        /*sacando los FileItem del ServletFileUpload en una lista */
+       
         List items = servlet_up.parseRequest(request);
  
         for(int i=0;i<items.size();i++){
-            /*FileItem representa un archivo en memoria que puede ser pasado al disco duro*/
+           
+           
             FileItem item = (FileItem) items.get(i);
             String n[] =item.getName().replace("\\","-").split("-");
-            String nombreReal=n[n.length-1]; //nombre real del archivo para guardar
-            /*item.isFormField() false=input file; true=text field*/
+            String nombreReal=n[n.length-1]; 
+           
             
             if (! item.isFormField()){
-                /*cual sera la ruta al archivo en el servidor*/
-                String nombre=item.getName().replace(" ", ""); //quito espacios del nombre
                 
+                String nombre=item.getName().replace(" ", ""); 
+                String rutaThumb="videoFolder/default.jpg";
+                        
                 File archivo_server = new File("C:/Users/Chelo/Documents/NetBeansProjects/JufroCMS/web/videoFolder/"+nombre);
-                /*y lo escribimos en el servido*/
+                
                 item.write(archivo_server);
-                asd( nombre,nombre,"ruta thumbnail","descripcion");
+                
+                send( nombre,nombre,rutaThumb,"descripcion");
                  
-                MiConfiguracion miweb = new MiConfiguracion();
-                //JufroPage mipagina = new JufroPage(mic,request,session);
+                MiConfiguracion miweb = new MiConfiguracion();            
                 
                 Layout lay = new Layout("C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\gVideo.jsp");
                 miweb.setContent(lay.getWebPage(),request,session);

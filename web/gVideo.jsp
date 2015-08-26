@@ -11,30 +11,34 @@
         <div id="gestorDiv" style="  display: block; position: static;top:170px;left:240px;width:560px">
         <h1>Gestor de Videos</h1>
                
-            <input type="button" onclick="muestraGaleria();show();" value="Galeria" >
-            <input type="button" onclick="muestraAdministrar()" value="Administrar">
+        <input type="button" onclick="muestraGaleria();showGallery()" value="Galeria" >
+            <input type="button" onclick="muestraAdministrar();showAdmin();" value="Administrar">
             <input type="button" onclick="muestraSubir()" value="Subir">     
  
         </div>
         
         
-        <div id="galeriaDiv" style="  display: none ">
+        <div id="galeriaDiv" style="display: none ">
+            <h1>Galeria</h1>
             
-            
-            <div id="hola" style="text-align: center">
-                <h1>Galeria</h1>
-                
+            <div id="galeriaDinamica" style="text-align: center">
+              
             </div>
            
             
         </div>  
         
-        <div id="administrarDiv" style="display: none; position: absolute;top:280px;left:240px;width:560px">
+        <div id="administrarDiv" style="display: none;">
             
             <h1>Administrar</h1>
+            <div id="adminDinamico" style="text-align: center">
+               
+                
+            </div>
+           
         </div>
         
-        <div id="subirDiv" style="display: none; position: absolute;top:280px;left:240px;width:560px">
+        <div id="subirDiv" style="display: none;">
             
             <h1>Subir</h1>
             
@@ -44,7 +48,7 @@
 
                 <input name="videoUL" type="file" />
                
-                <div id="datosDiv" style="display: block; position: absolute;top:130px;left:0px;width:560px">
+                <div id="datosDiv" style="display:">
                     
                     
                      <br>
@@ -99,17 +103,20 @@
                 document.getElementById("subirDiv").style.display = "block";
             }
             
-            function show(){
+            function showGallery(){
                 
-                 
-                for(var i=0; i<10;i++){
-                    
-                    $(document).ready(function(){ 
-                        $("#hola").load('galleryLoad.jsp');
-                    });
-                } 
-        
-  
+                $(document).ready(function(){ 
+                        $("#galeriaDinamica").load('galleryLoad.jsp');
+                });
+
+            }
+            
+            function showAdmin(){
+                
+                $(document).ready(function(){ 
+                        $("#adminDinamico").load('adminLoad.jsp');
+                });
+
             }
 
         </script>
