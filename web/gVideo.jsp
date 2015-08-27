@@ -21,12 +21,14 @@
         <div id="galeriaDiv" style="display: none ">
             <h1>Galeria</h1>
             
-            <div id="galeriaDinamica" style="text-align: center">
+            <div id="galeriaDinamica">
               
             </div>
            
             
         </div>  
+        
+        <div id="editarDiv" style="display: none">asd</div>
         
         <div id="administrarDiv" style="display: none;">
             
@@ -38,7 +40,7 @@
            
         </div>
         
-        <div id="subirDiv" style="display: none;">
+        <div id="subirDiv" style="display: block; background-color: rgb(255, 255, 255); border-radius: 10px; padding: 40px; margin-top: 30px; display: none;">
             
             <h1>Subir</h1>
             
@@ -50,7 +52,6 @@
                
                 <div id="datosDiv" >
                     
-                    <br>Nombre de archivo: video.mp4 <br>
                     Ingrese Titulo: 
                     <br><input type="text" name="titulo"  >
                     <br>Categoria: 
@@ -74,7 +75,7 @@
                    <!--<input name="thumbUL" type="file" /><br>-->  
                    <img name="thumbnail" height="90" width="150" src="videoFolder/default.jpg" alt="thumbnail"><br>
 
-                    <input type="submit" value="Subir" /> 
+                   <input class="button" id="subir" type="submit" value="Subir" /> 
                 </div>
                 
                 
@@ -106,6 +107,14 @@
                 document.getElementById("galeriaDiv").style.display = "none";
                 document.getElementById("administrarDiv").style.display = "none";
                 document.getElementById("subirDiv").style.display = "block";
+            }
+            
+            function muestraEditar(){
+                document.getElementById("editarDiv").style.display = "block";
+                document.getElementById("administrarDiv").style.display = "none";
+                $(document).ready(function(){ 
+                        $("#editarDiv").load('editLoad.jsp');
+                });
             }
             
             function showGallery(){

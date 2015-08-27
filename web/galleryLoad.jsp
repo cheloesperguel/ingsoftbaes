@@ -1,7 +1,4 @@
 <%@page import="java.util.*" %>
-<%@page import="org.apache.commons.fileupload.*" %>
-<%@page import="org.apache.commons.fileupload.disk.*" %>
-<%@page import="org.apache.commons.fileupload.servlet.*" %>
 <%@page import="org.apache.commons.io.*" %>
 <%@page import="java.io.*" %>
 <%@page import="jufroweb.JufroCMSConnection"%>
@@ -19,15 +16,37 @@
             ResultSet rs = s.executeQuery("select * from VIDEO" );
 
         while (rs.next()){
-            String string="<video src=";
             
+            String thumb=rs.getObject("RUTA_THUMB").toString();
+            String titulo=rs.getObject("TITULO").toString();
+            String desc=rs.getObject("DESCRIPCION").toString();
+            String categ=rs.getObject("CATEGORIA").toString();
+            String stringVideo="<video src=";
+            String stringDatos;
+
             String ruta=rs.getObject("RUTA").toString();
             
-            string=string+ruta;
-            string=string+" poster=\"videoFolder/default.jpg\" width=\"400\" controls></video><br>";
+            stringVideo=stringVideo+ruta;
+            stringVideo=stringVideo+" poster="+thumb+" style=\"margin-bottom: 15px; margin-left: 15px;\" width=\"400\" controls></video>";
             
-            out.println(rs.getObject("NOMBRE").toString()+"<br>");
-            out.println(string);  
+            stringDatos="<div style=\"display: inline-flex; margin: 10px; position: absolute;\" > "
+                    + "Titulo: "+titulo+""
+                    + "<br>"
+                    + "Descripcion: "+ desc+""
+                    + "<br>"
+                    + "Categoria: "+categ+""
+                    + "</div>";
+           
+           
+            //////////////////////
+            
+            out.println("<div style=\"background-color: cadetblue; border-radius: 10px; margin: 10px;\">");
+            out.println("<h3 style=\"padding-top: 10px; text-align: center;\">"+rs.getObject("NOMBRE").toString()+"</h3>");
+            out.println(stringVideo);
+            out.println(stringDatos);        
+            out.println("</div>");
+            
+            
         }
         
     }catch(Exception e){
@@ -38,5 +57,4 @@
     
     
     %>
-    
     

@@ -25,12 +25,7 @@
            
             
             FileItem item = (FileItem) items.get(i);
-            %>
-            <script>
-                window.alert( "hola" );
-                            
-            </script>
-            <%
+
             if (! item.isFormField()){
                 
                 nombre=item.getName().replace(" ", ""); 
@@ -72,9 +67,3 @@
         
         %>
         
-        <script>
-            
-            function(){
-                w
-            }
-        </script>
