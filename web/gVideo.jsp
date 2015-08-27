@@ -48,7 +48,7 @@
 
                 <input name="videoUL" type="file" />
                
-                <div id="datosDiv" style="display:">
+                <div id="datosDiv" >
                     
                     <br>Nombre de archivo: video.mp4 <br>
                     Ingrese Titulo: 
@@ -56,12 +56,14 @@
                     <br>Categoria: 
                     <br>
                       
-                    <select nombre="categoria" id="categoria">
-                        <option value="Musica">Musica</option>
-                        <option value="Entretencion">Entretencion</option>
-                        <option value="Juegos">Juegos</option>
-                        <option value="Peliculas">Peliculas</option>
-                     </select>  
+                    <Select name="categoria"  id="categoria">
+                        <option value = "Musica" selected>Musica</option>
+                        <option value = "Entretencion">Entretencion</option>
+                        <option value = "Juegos">Juegos</option>
+                        <option value = "Peliculas">Peliculas</option>
+                        <option value = "Deportes">Deportes</option>                       
+                    </Select>
+                    
                     
                     <br>
                     Ingrese Descripción:

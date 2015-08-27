@@ -22,7 +22,7 @@
             String thumb=rs.getObject("RUTA_THUMB").toString();
             String titulo=rs.getObject("TITULO").toString();
             String desc=rs.getObject("DESCRIPCION").toString();
-            
+            String categ=rs.getObject("CATEGORIA").toString();
             String stringThumb="<img src=\"";
             String stringDatos;
             
@@ -34,6 +34,8 @@
                     + "Titulo: "+titulo+""
                     + "<br>"
                     + "Descripcion: "+ desc+""
+                    + "<br>"
+                    + "Categoria: "+categ+""
                     + "</div>";
            
            

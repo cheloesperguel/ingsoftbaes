@@ -19,12 +19,12 @@
         String rutaThumb="";
         String titulo="";
         String descripcion="";
-        String categoria="lol2";
+        String categoria="";
         
-        for(FileItem item : items){
+        for(int i=0;i<items.size();i++){
            
             
-           // FileItem item = (FileItem) items.get(i);
+            FileItem item = (FileItem) items.get(i);
             %>
             <script>
                 window.alert( "hola" );
@@ -40,10 +40,7 @@
                 File archivo_server = new File("C:/Users/Chelo/Documents/NetBeansProjects/JufroCMS/web/videoFolder/"+nombre);       
                 item.write(archivo_server);
                 
-                if(item.getFieldName().equals("categoria")){
-                     categoria= "lol";
-                     
-                }
+                
             }else{
                 
                 if(item.getFieldName().equals("titulo")){
@@ -54,7 +51,10 @@
                         descripcion= item.getString();
                 }
                 
-                
+                if(item.getFieldName().equals("categoria")){
+                     categoria= item.getString();
+                     
+                }
             }
         }
         
