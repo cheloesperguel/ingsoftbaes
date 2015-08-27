@@ -18,6 +18,15 @@ public class MiConfiguracion extends JufroApplication {
         mimenu.addMenuItemFromHtml("Productos","C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\estatico.html");
         mimenu.addMenuItemFromJSP("Servicios","dinamico.jsp");
         mimenu.addMenuItemFromHtml("Video","C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\gVideo.jsp");
+        //C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\gVideo.jsp
+        //JufroMenu subMenu = new JufroMenu();
+        
+        //subMenu.addMenuItemFromJSP("Servicios","dinamico.jsp");
+        //subMenu.addMenuItemFromJSP("Servicios","dinamico.jsp");
+        
+        //mimenu.setSubMenu(subMenu);
+        
+        
         //mimenu.addMenuItemFromJSP("Video JSP","Gestor de videos/container.jsp");
 
         this.setMenu(mimenu);

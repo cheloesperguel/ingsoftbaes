@@ -6,7 +6,8 @@ import java.util.LinkedList;
 public class JufroMenu {
     private LinkedList<String> opc=null;
     private LinkedList<String> lnk=null;
-    
+    private JufroMenu subMenu;
+            
     public JufroMenu() {
         this.opc=new LinkedList<String>();
         this.lnk=new LinkedList<String>();
@@ -29,18 +30,19 @@ public class JufroMenu {
    
    public void addMenuItemFromHtml(String choiceCaption,String htmlFile){
        this.opc.add(choiceCaption);
-       this.lnk.add("index.jsp?htmlFile="+htmlFile);
+       if(htmlFile.equals("#")){
+           this.lnk.add(htmlFile);
+       }else{
+         this.lnk.add("index.jsp?htmlFile="+htmlFile);  
+       }
+       
    }
    
    public void addMenuItemFromJSP(String choiceCaption,String jspFile){
        this.opc.add(choiceCaption);
        this.lnk.add(jspFile);
    }
-   
-   
-           
-           
-           
+       
    public String getHtml() {
        String o,lk,ret="<div class=\"menu\"><ul>";
        Iterator it = this.opc.iterator();
@@ -49,9 +51,21 @@ public class JufroMenu {
            o = (String)it.next();
            lk = (String)i2.next();
            ret+="<li><a href=\""+lk+"\" title=\"lnk\">"+o+"</a></li>";
+           /*
+           if(o.equals("Video")){
+               
+              ret+=subMenu.getHtml();
+           }
+           */
        }
         ret+="</ul></div>";
         return ret;
    }
+   
+   public void setSubMenu(JufroMenu subMenu){
+       this.subMenu=subMenu;
+   }
     
+  
+   
 }
