@@ -36,7 +36,7 @@ public class Video {
               JufroCMSConnection c = new JufroCMSConnection();
               Statement s = c.createStatement();
               
-              String sentencia="INSERT INTO VIDEO VALUES ( '"+titulo+"', 'videoFolder/"+nombreArchivo+"', '"+thumbnail+"')";
+              String sentencia="INSERT INTO VIDEO VALUES ( '"+nombreArchivo+"', 'videoFolder/"+nombreArchivo+"', '"+thumbnail+"', '"+titulo+"')";
               s.execute(sentencia);
               //Ejemplo s.execute("INSERT INTO VIDEO VALUES ('Taiwan', 'TW', 'Asia')");
               ResultSet r = s.getResultSet();
