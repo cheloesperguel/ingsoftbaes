@@ -54,7 +54,7 @@
                      <br>
                     <img name="thumbnail" height="90" width="150" src="videoFolder/default.jpg" alt="thumbnail"><br>
                     <br>Nombre de archivo: video.mp4 <br>
-                    <!-- Nombre: <input name="nombreVideoTf" type="text" > -->
+                    Nombre: <input type="text" name="titulo"  >
                     Categoria: 
 
                      <select>
@@ -62,9 +62,6 @@
                         <option value="Entretencion">Entretencion</option>
                         <option value="Juegos">Juegos</option>
                         <option value="Peliculas">Peliculas</option>
-                        
-                       
-                        
                       </select>  
                     <br>
                     Subir imagen thumbnail (opcional):<br>

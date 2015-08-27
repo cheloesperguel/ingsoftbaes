@@ -12,39 +12,44 @@
 <%
         
         FileItemFactory file_factory = new DiskFileItemFactory();        
-        ServletFileUpload servlet_up = new ServletFileUpload(file_factory);      
+        ServletFileUpload servlet_up = new ServletFileUpload(file_factory);  
+        
         List items = servlet_up.parseRequest(request);
- 
+        String nombre="";
+        String rutaThumb="";
+        String titulo="";
+        
         for(int i=0;i<items.size();i++){
            
-           
-            FileItem item = (FileItem) items.get(i);
-            String n[] =item.getName().replace("\\","-").split("-");
-            String nombreReal=n[n.length-1]; 
-           
             
+            FileItem item = (FileItem) items.get(i);
+     
             if (! item.isFormField()){
                 
-                String nombre=item.getName().replace(" ", ""); 
-                String rutaThumb="videoFolder/default.jpg";
-                        
+                nombre=item.getName().replace(" ", ""); 
+                rutaThumb="videoFolder/default.jpg";
+                
+                
                 File archivo_server = new File("C:/Users/Chelo/Documents/NetBeansProjects/JufroCMS/web/videoFolder/"+nombre);       
                 item.write(archivo_server);
+            }else{
                 
-                Video video= new Video("titulo video", nombre, "categoria", "videoFolder/"+nombre, rutaThumb);
-           
-                video.guardarBD();
-                
-                MiConfiguracion miweb = new MiConfiguracion();            
-                
-                Layout lay = new Layout("C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\gVideo.jsp");
-                miweb.setContent(lay.getWebPage(),request,session);
-               
-                out.print(miweb.getWebPage());
-                
+                if(item.getFieldName().equals("titulo")){
+                        titulo= item.getString();
+                }
             }
         }
-       
+        
+        Video video= new Video(titulo, nombre, "categoria", "videoFolder/"+nombre, rutaThumb);
+        
+        video.guardarBD();
+
+        MiConfiguracion miweb = new MiConfiguracion();            
+
+        Layout lay = new Layout("C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\gVideo.jsp");
+        miweb.setContent(lay.getWebPage(),request,session);
+
+        out.print(miweb.getWebPage());
         
         
         %>

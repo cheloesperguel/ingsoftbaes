@@ -19,21 +19,25 @@
             ResultSet rs = s.executeQuery("select * from VIDEO" );
 
         while (rs.next()){
-            String thumb;
-            String string;
+            String thumb=rs.getObject("RUTA_THUMB").toString();
+            String titulo=rs.getObject("TITULO").toString();
+            String stringThumb="<img src=\"";
+            String stringDatos;
+            
+            stringThumb="<img src=\"";
+            stringThumb+=thumb;
+            stringThumb+="\" width=\"400\">";
+            
+            stringDatos="<div style=\"display: inline-flex; margin: 10px; position: absolute;\" > Titulo: "+titulo+"</div>";
+            //////////////////////
+            
             out.println("<div>");
-            string="<img src=\"";
-            
-            thumb=rs.getObject("RUTA_THUMB").toString();
-            
-            string=string+thumb;
-            string=string+"\" width=\"400\">";
-            
             out.println(rs.getObject("NOMBRE").toString()+"<br>");
-            out.println(string);  
-            out.println("<div style=\"display: inline-flex; margin: 10px; position: absolute;\" > asd </div>");
-            
+            out.println(stringThumb);
+            out.println(stringDatos);        
             out.println("</div>");
+            
+            ///////
         }
         
     }catch(Exception e){
