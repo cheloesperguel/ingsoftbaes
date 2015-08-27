@@ -31,7 +31,7 @@
         <div id="administrarDiv" style="display: none;">
             
             <h1>Administrar</h1>
-            <div id="adminDinamico" style="text-align: center">
+            <div id="adminDinamico">
                
                 
             </div>
@@ -50,22 +50,28 @@
                
                 <div id="datosDiv" style="display:">
                     
-                    
-                     <br>
-                    <img name="thumbnail" height="90" width="150" src="videoFolder/default.jpg" alt="thumbnail"><br>
                     <br>Nombre de archivo: video.mp4 <br>
-                    Nombre: <input type="text" name="titulo"  >
-                    Categoria: 
-
-                     <select>
+                    Ingrese Titulo: 
+                    <br><input type="text" name="titulo"  >
+                    <br>Categoria: 
+                    <br>
+                      
+                    <select nombre="categoria" id="categoria">
                         <option value="Musica">Musica</option>
                         <option value="Entretencion">Entretencion</option>
                         <option value="Juegos">Juegos</option>
                         <option value="Peliculas">Peliculas</option>
-                      </select>  
+                     </select>  
+                    
+                    <br>
+                    Ingrese Descripción:
+                    <br>
+                    <textarea name="descripcion" rows="10" cols="40"></textarea>
                     <br>
                     Subir imagen thumbnail (opcional):<br>
-                   <!-- <input name="videoUL" type="file" /><br>-->
+                   <!--<input name="thumbUL" type="file" /><br>-->  
+                   <img name="thumbnail" height="90" width="150" src="videoFolder/default.jpg" alt="thumbnail"><br>
+
                     <input type="submit" value="Subir" /> 
                 </div>
                 

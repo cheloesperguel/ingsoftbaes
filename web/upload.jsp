@@ -14,16 +14,23 @@
         FileItemFactory file_factory = new DiskFileItemFactory();        
         ServletFileUpload servlet_up = new ServletFileUpload(file_factory);  
         
-        List items = servlet_up.parseRequest(request);
+        List<FileItem> items = servlet_up.parseRequest(request);
         String nombre="";
         String rutaThumb="";
         String titulo="";
+        String descripcion="";
+        String categoria="lol2";
         
-        for(int i=0;i<items.size();i++){
+        for(FileItem item : items){
            
             
-            FileItem item = (FileItem) items.get(i);
-     
+           // FileItem item = (FileItem) items.get(i);
+            %>
+            <script>
+                window.alert( "hola" );
+                            
+            </script>
+            <%
             if (! item.isFormField()){
                 
                 nombre=item.getName().replace(" ", ""); 
@@ -32,15 +39,26 @@
                 
                 File archivo_server = new File("C:/Users/Chelo/Documents/NetBeansProjects/JufroCMS/web/videoFolder/"+nombre);       
                 item.write(archivo_server);
+                
+                if(item.getFieldName().equals("categoria")){
+                     categoria= "lol";
+                     
+                }
             }else{
                 
                 if(item.getFieldName().equals("titulo")){
                         titulo= item.getString();
                 }
+                
+                if(item.getFieldName().equals("descripcion")){
+                        descripcion= item.getString();
+                }
+                
+                
             }
         }
         
-        Video video= new Video(titulo, nombre, "categoria", "videoFolder/"+nombre, rutaThumb);
+        Video video= new Video(titulo, nombre, categoria, "videoFolder/"+nombre, rutaThumb, descripcion);
         
         video.guardarBD();
 
@@ -54,3 +72,9 @@
         
         %>
         
+        <script>
+            
+            function(){
+                w
+            }
+        </script>

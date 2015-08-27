@@ -15,17 +15,19 @@ public class Video {
     private String categoria;
     private String ruta;
     private String thumbnail;
+    private String descripcion;
     
     public Video(){
         
     }
 
-    public Video(String titulo, String nombreArchivo, String categoria, String ruta, String thumbnail) {
+    public Video(String titulo, String nombreArchivo, String categoria, String ruta, String thumbnail, String descripcion) {
         this.titulo = titulo;
         this.nombreArchivo = nombreArchivo;
         this.categoria = categoria;
         this.ruta = ruta;
         this.thumbnail = thumbnail;
+        this.descripcion=descripcion;
     }
     
     
@@ -36,9 +38,9 @@ public class Video {
               JufroCMSConnection c = new JufroCMSConnection();
               Statement s = c.createStatement();
               
-              String sentencia="INSERT INTO VIDEO VALUES ( '"+nombreArchivo+"', 'videoFolder/"+nombreArchivo+"', '"+thumbnail+"', '"+titulo+"')";
+              String sentencia="INSERT INTO VIDEO VALUES ( '"+nombreArchivo+"', 'videoFolder/"+nombreArchivo+"', '"+thumbnail+"', '"+titulo+"', '"+descripcion+"', '"+categoria+"')";
               s.execute(sentencia);
-              //Ejemplo s.execute("INSERT INTO VIDEO VALUES ('Taiwan', 'TW', 'Asia')");
+              //Ejemplo s.execute("INSERT INTO VIDEO VALUES ('Taiwan', 'TW', 'Asia')");  
               ResultSet r = s.getResultSet();
               if (r!=null){
               

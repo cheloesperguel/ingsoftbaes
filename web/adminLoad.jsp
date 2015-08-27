@@ -21,6 +21,8 @@
         while (rs.next()){
             String thumb=rs.getObject("RUTA_THUMB").toString();
             String titulo=rs.getObject("TITULO").toString();
+            String desc=rs.getObject("DESCRIPCION").toString();
+            
             String stringThumb="<img src=\"";
             String stringDatos;
             
@@ -28,7 +30,13 @@
             stringThumb+=thumb;
             stringThumb+="\" width=\"400\">";
             
-            stringDatos="<div style=\"display: inline-flex; margin: 10px; position: absolute;\" > Titulo: "+titulo+"</div>";
+            stringDatos="<div style=\"display: inline-flex; margin: 10px; position: absolute;\" > "
+                    + "Titulo: "+titulo+""
+                    + "<br>"
+                    + "Descripcion: "+ desc+""
+                    + "</div>";
+           
+           
             //////////////////////
             
             out.println("<div>");
@@ -37,7 +45,7 @@
             out.println(stringDatos);        
             out.println("</div>");
             
-            ///////
+            
         }
         
     }catch(Exception e){
