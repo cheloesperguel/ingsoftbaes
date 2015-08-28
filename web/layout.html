@@ -42,7 +42,7 @@
     .content {
         padding-right: 50px;
         font-family: Helvetica;
-        color: #443410;
+        color: #000000;
     }
     
     .menu {
@@ -57,7 +57,64 @@
   	height: 24px;
 	text-decoration: none;
     }	
-	
+    
+    nav{
+    /*Bordes redondeados*/
+    -webkit-border-radius:10px;/*Para chrome y Safari*/
+    -moz-border-radius:10px;/*Para Firefox*/
+    -o-border-radius:10px;/*Para Opera*/
+    border-radius:10px;/*El estandar por defecto*/
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#CCC));/*Para chrome y Safari*/
+    /*Degradados*/
+    width: 100%;
+    
+    background-color: rgb(136, 106, 8);
+
+    }   
+    
+    nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    text-align: justify;
+    display: inline-flex;
+    }
+    
+    .divDatos{
+        width:250px;
+        
+    }
+    
+    nav ul li{
+    
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    text-align:center;
+    
+    list-style:none;
+    width: 100%;
+    display: inline-block;
+}
+    
+nav ul li:hover{
+    background-color:#90A020 ;
+}
+    
+nav ul li a{
+    color:white;
+    display:block;
+    padding:10px;
+    text-decoration:none;
+    /*Transiciones*/
+    -webkit-transition: 0.4s linear all;
+    -moz-transition: 0.4s linear all;
+    -o-transition: 0.4s linear all;
+    transition: 0.4s linear all;
+}
+
+
+
     .menu li a:link, .menu li a:visited {
 	color: #FFF;
 	display: block;

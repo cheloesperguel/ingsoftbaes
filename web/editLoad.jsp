@@ -61,7 +61,7 @@
     
         MiConfiguracion miweb = new MiConfiguracion();            
 
-        Layout lay = new Layout("C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\gVideo.jsp");
+        //Layout lay = new Layout("C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\gVideo.jsp");
         miweb.setContent( cadena,request,session);
 
         out.print(miweb.getWebPage());

@@ -8,14 +8,18 @@
     </head>
     <body style="width: 100%; position: relative">
         
-        <div id="gestorDiv" style="  display: block; position: static;top:170px;left:240px;width:560px">
+        <div id="gestorDiv" style="  display: block; position: static;margin:10px">
         <h1>Gestor de Videos</h1>
-               
-        <input type="button" onclick="muestraGaleria();showGallery()" value="Galeria" >
-            <input type="button" onclick="muestraAdministrar();showAdmin();" value="Administrar">
-            <input type="button" onclick="muestraSubir()" value="Subir">     
- 
-        </div>
+        
+        <nav>
+            <ul>
+                <li><a title="Opcion 1" onclick="muestraGaleria();showGallery()" href="#">Galeria</a></li>
+                <li><a title="Opcion 2" onclick="muestraAdministrar();showAdmin();"href="#">Administrar</a></li>
+                <li><a title="Opcion 3" onclick="muestraSubir()" href="#">Subir Video</a></li>             
+            </ul>
+        </nav>
+        
+        
         
         
         <div id="galeriaDiv" style="display: none ">
@@ -28,7 +32,6 @@
             
         </div>  
         
-        <div id="editarDiv" style="display: none">asd</div>
         
         <div id="administrarDiv" style="display: none;">
             
@@ -71,10 +74,10 @@
                     <br>
                     <textarea name="descripcion" rows="10" cols="40"></textarea>
                     <br>
-                    Subir imagen thumbnail (opcional):<br>
-                   <!--<input name="thumbUL" type="file" /><br>-->  
+                   <!-- Subir imagen thumbnail (opcional):<br>
+                   <!--<input name="thumbUL" type="file" /><br> 
                    <img name="thumbnail" height="90" width="150" src="videoFolder/default.jpg" alt="thumbnail"><br>
-
+                    --> 
                    <input class="button" id="subir" type="submit" value="Subir" /> 
                 </div>
                 
@@ -110,8 +113,6 @@
             }
             
             function muestraEditar(){
-                document.getElementById("editarDiv").style.display = "block";
-                document.getElementById("administrarDiv").style.display = "none";
                 $(document).ready(function(){ 
                         $("#editarDiv").load('editLoad.jsp');
                 });

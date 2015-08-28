@@ -20,6 +20,11 @@
     
     video.editaBD(id);
     
-    out.println(titulo+ " "+ cat+" "+ ruta+" "+ thumb+" "+ descripcion+" "+nom);
+    MiConfiguracion miweb= new MiConfiguracion();
+    Layout lay = new Layout("C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\gVideo.jsp");
+    miweb.setContent(lay.getWebPage(),request,session);
+    
+    out.println(miweb.getWebPage());
+    //out.println(titulo+ " "+ cat+" "+ ruta+" "+ thumb+" "+ descripcion+" "+nom);
     
     %>

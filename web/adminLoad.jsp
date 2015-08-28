@@ -39,23 +39,23 @@
             stringThumb+=thumb;
             stringThumb+="\" style=\"margin-bottom: 15px; margin-left: 15px;\" width=\"400\">";
             
-            stringDatos="<div style=\"display: inline-flex; margin: 10px; position: absolute;\" > "
+            stringDatos="<div class=\"divDatos\" style=\"display: inline-flex; margin: 10px; position: absolute;\" > "
                     + "Titulo: "+titulo+""
                     + "<br>"
                     + "Descripcion: "+ desc+""
                     + "<br>"
                     + "Categoria: "+categ+""
                     + "<br>"
-                    + "Visible: "               
-                    + "<input type=\"checkbox\" name=\"visible\" value=\"Visible\" style=\"position:inherit\" "+check+">"
+                    //+ "Visible: "               
+                    //+ "<input type=\"checkbox\" name=\"visible\" value=\"Visible\" style=\"position:inherit\" "+check+">"
                     + "<br>"      
-                    + "<a href=\"editLoad.jsp?id="+i+"\" onclick=\"muestraEditar();\" style=\"position: inherit;\" ><p>Editar<p></a>"
+                    + "<a href=\"editLoad.jsp?id="+i+"\" onclick=\"muestraEditar();\" style=\"position: inherit;\" ><p>Editar o Eliminar<p></a>"
                     + "</div>";
            
            
             //////////////////////
-            
-            out.println("<div style=\"background-color: cadetblue; border-radius: 10px; margin: 10px;\">");
+            out.println("<div style=\"background-color: cadetblue; border-radius: 10px; margin: 10px;\">");            
+
             out.println("<h3 style=\"padding-top: 10px; text-align: center;\">"+rs.getObject("NOMBRE").toString()+"</h3>");
             out.println(stringThumb);
             out.println(stringDatos);        

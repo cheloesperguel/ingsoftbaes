@@ -129,6 +129,7 @@ public class Video {
         this.thumbnail = thumbnail;
     }
     
+    /*
     public void setVisibilidadBd(String Nombre, boolean valor){
         
         try{
@@ -147,6 +148,6 @@ public class Video {
      
     }
     
-    
+    */
     
 }

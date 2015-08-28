@@ -13,6 +13,10 @@
     
     video.eliminaBd(id);
     
-   
+    MiConfiguracion miweb= new MiConfiguracion();
+    Layout lay = new Layout("C:\\Users\\Chelo\\Documents\\NetBeansProjects\\JufroCMS\\web\\gVideo.jsp");
+    miweb.setContent(lay.getWebPage(),request,session);
+    
+    out.println(miweb.getWebPage());
     
     %>
